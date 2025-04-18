@@ -1,6 +1,3 @@
-const axios = require('axios');
-const { text } = require('express');
-require('dotenv').config();
 async function translateText(text, targetLang) {
   try {
       const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
@@ -20,9 +17,3 @@ async function translateText(text, targetLang) {
   }
 }
 module.exports = translateText;
-
-      // if (Array.isArray(data) && data[0] && Array.isArray(data[0][0])) {
-      //     return data[0].map(sentence => sentence[0]).join(" ");
-      // } else {
-      //     throw new Error("Unexpected response format");
-      // }
