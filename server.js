@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
 
     clients.forEach(async (client) => {
       const recipient = users[client.id];
-      if (recipient) {
+      if (recipient && client.id !== socket.id) {
         const translatedText = await translateText(text, recipient.language);
         io.to(client.id).emit('chat_message', {
           original: text,
